@@ -4,7 +4,7 @@
   <div v-else>
     <h1>Who is that Pokémon?</h1>
     <PokemonPicture :pokemonId="pokemon.id" :showPokemon="showPokemon" />
-    <PokemonOptions :pokemons="pokemons" @selection="chechAnswer" />
+    <PokemonOptions :pokemons="pokemons" @selection="checkAnswer" />
 
     <template v-if="showAnswer">
       <h2 class="fade-in">{{ message }}</h2>
@@ -35,7 +35,7 @@ export default {
       this.pokemons = await getPokemonsOptions();
       this.pokemon = this.pokemons[Math.floor(Math.random() * 4)];
     },
-    chechAnswer(selectedPokemonId) {
+    checkAnswer(selectedPokemonId) {
       this.showPokemon = true;
       this.showAnswer = true;
 
